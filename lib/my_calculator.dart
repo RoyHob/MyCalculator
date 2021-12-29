@@ -6,12 +6,22 @@ class MyCalculator extends StatefulWidget {
 }
 
 class MyCalculatorState extends State<MyCalculator> {
+  String equation = "0";
+  String result = "0";
+  String expression = "";
+
+  buttonPressed(String buttonText) {
+    if (buttonText == "C") {
+      result = "789";
+    }
+  }
+
   Widget buildButton(String buttonText, double buttonHeight, Color buttonColor) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.1 * buttonHeight,
       color: buttonColor,
       child: FlatButton(
-        onPressed: null,
+        onPressed: () => buttonPressed(buttonText),
         child: Text(
           buttonText,
           style: TextStyle(color: Colors.white),
@@ -43,7 +53,7 @@ class MyCalculatorState extends State<MyCalculator> {
                   10,
                 ),
                 color: Colors.redAccent.withOpacity(0.7),
-                child: Text("0", style: TextStyle(fontSize: 30)),
+                child: Text(equation, style: TextStyle(fontSize: 30)),
               ),
             ),
             Padding(
@@ -57,7 +67,7 @@ class MyCalculatorState extends State<MyCalculator> {
                   20,
                 ),
                 color: Colors.greenAccent.withOpacity(0.7),
-                child: Text("0", style: TextStyle(fontSize: 40)),
+                child: Text(result, style: TextStyle(fontSize: 40)),
               ),
             ),
             Expanded(child: Divider()),
@@ -141,3 +151,6 @@ class MyCalculatorState extends State<MyCalculator> {
     );
   }
 }
+
+//
+//Questions Wrape two container in the same padding  ?
