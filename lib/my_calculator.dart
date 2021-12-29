@@ -12,7 +12,7 @@ class MyCalculatorState extends State<MyCalculator> {
 
   buttonPressed(String buttonText) {
     if (buttonText == "C") {
-      result = "789";
+      result = "g";
     }
   }
 
