@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class MyCalculator extends StatefulWidget {
   @override
@@ -12,11 +13,25 @@ class MyCalculatorState extends State<MyCalculator> {
 
   buttonPressed(String buttonText) {
     if (buttonText == "C") {
-      result = "pp";
+      equation = "0";
+      result = "0";
     } else if (buttonText == "Back") {
       equation = equation.substring(0, equation.length - 1);
+      if (equation == "0") {
+        equation = "0";
+      }
     } else if (buttonText == "=") {
-      equation = "fin";
+      expression = equation;
+
+      try {
+        Parser p = new Parser();
+        Expression exp = p.parse(expression);
+
+        ContextModel cm = ContextModel();
+        result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+      } catch (e) {
+        result = "Error";
+      }
     } else {
       if (buttonText == "0") {
         equation = "0";
