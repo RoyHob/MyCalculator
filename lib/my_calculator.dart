@@ -12,20 +12,18 @@ class MyCalculatorState extends State<MyCalculator> {
 
   buttonPressed(String buttonText) {
     if (buttonText == "C") {
-      result = "0";  
-    }
-    else if  ( buttonText == "Back"){
-      equation = equation.substring(0,equation.length -1);
-    }else if(){
-
-    }else{
-      if(buttonText == "0"){
+      result = "0";
+    } else if (buttonText == "Back") {
+      equation = equation.substring(0, equation.length - 1);
+    } else if (buttonText == "=") {
+      equation = "fin";
+    } else {
+      if (buttonText == "0") {
         equation = "0";
-      }else{
-        equation = equation + buttonText ;
+      } else {
+        equation = equation + buttonText;
       }
     }
-
   }
 
   Widget buildButton(String buttonText, double buttonHeight, Color buttonColor) {
