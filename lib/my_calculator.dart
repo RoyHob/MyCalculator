@@ -12,7 +12,7 @@ class MyCalculatorState extends State<MyCalculator> {
 
   buttonPressed(String buttonText) {
     if (buttonText == "C") {
-      result = "0";
+      result = "pp";
     } else if (buttonText == "Back") {
       equation = equation.substring(0, equation.length - 1);
     } else if (buttonText == "=") {
