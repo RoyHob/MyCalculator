@@ -36,7 +36,7 @@ class MyCalculatorState extends State<MyCalculator> {
       if (buttonText == "0") {
         equation = "0";
       } else {
-        equation = equation + buttonText;
+        equation = buttonText;
       }
     }
   }
